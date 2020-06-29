@@ -10,7 +10,9 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule} from '@angular/common/http';
-
+import { AddEmpComponent } from './home/add-emp/add-emp.component';
+import { EditEmpComponent } from './home/edit-emp/edit-emp.component';
+import {FormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,12 +21,15 @@ import { HttpClientModule} from '@angular/common/http';
     MyDirDirective,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    AddEmpComponent,
+    EditEmpComponent
     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

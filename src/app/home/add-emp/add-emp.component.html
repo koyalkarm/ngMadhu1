@@ -1,0 +1,41 @@
+<p>add-emp works!</p>
+<button routerLink="/home" class="btn btn-secondary btn-sm align-items-right">Home</button>
+
+<!-- <form class="form-inline">
+<div class="form-group">
+    <label>Name: </label>
+    <input type="text" id="name" placeholder="name" class="form-control" />
+</div>
+</form> -->
+
+
+<form name="addEmpForm" #addEmpForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name*</label>
+      <input type="text" class="form-control" id="name" name="name" required placeholder="Enter Name" [(ngModel)]="employee.name" #name="ngModel">
+          </div>
+    <div class="form-group">
+      <label for="salary">Salary*</label>
+      <input type="number" class="form-control" id="salary" name="salary" placeholder="Enter Salary" required [(ngModel)]="employee.salary">
+    </div>
+
+    <div class="form-group">
+        <label for="age">Age*</label>
+        <input type="number" class="form-control" id="age" name="age" placeholder="Enter Age" required [(ngModel)]="employee.age">
+            </div>
+      <div class="form-group">
+        <label for="profile">Profile Image*</label>
+        <input type="file" class="form-control" id="profile" name="profile" placeholder="Enter Profile" required [(ngModel)]="employee.profile" accept=".jpg, .gif, .png"  >
+      </div>
+  
+
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" required id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">I Agree</label>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="valid" (click)="addEmployee(addEmpForm)">Submit</button>
+  </form>
+{{employee|json}}
+<button (click)="toggle()">Click</button>
+<div [hidden]="show">For test</div>
+

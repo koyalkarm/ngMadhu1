@@ -1,1 +1,26 @@
 <p>home works!</p>
+<button routerLink="/addEmp">
+    Add new employee
+</button>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Employee Id</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Age</th>
+        <th>Profile Image</th>
+        <th>Actions</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let emp of empData">
+    <td>{{emp.id}}</td>
+    <td>{{emp.employee_name}}</td>
+    <td>{{emp.employee_salary}}</td>
+    <td>{{emp.employee_age}}</td>
+    <td><img src="{{emp.profile_image}}" style="{width:100px, border:1px solid #ccc}"></td>
+    <td><button routerLink="/editEmp">Edit</button><button>Delete</button></td>
+    </tr>
+</tbody>
+</table>
