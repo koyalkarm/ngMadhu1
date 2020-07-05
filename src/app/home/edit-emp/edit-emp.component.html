@@ -1,2 +1,94 @@
-<p>edit-emp works!</p>
-<button routerLink="/home">Home</button>
+<div class="mt-3"><button routerLink="/home" class="btn btn-primary btn-sm align-items-right float-right">
+    Home
+  </button><div class="clearfix"></div> </div>
+<form name="editEmpForm" #editEmpForm="ngForm">
+    <div class="form-group">
+      <label for="id">ID*</label>
+      <input
+        type="text"
+        class="form-control"
+        disabled
+        id="id"
+        name="id"
+        required
+        [(ngModel)]="id"
+        #name="ngModel"
+      />
+      <div *ngIf="name.errors && name.touched" class="invalid-feedback1">Name is required</div>
+    </div>
+    <div class="form-group">
+        <label for="name">Name*</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          required
+          placeholder="Enter Name"
+          [(ngModel)]="employee.name"
+          #name="ngModel"
+        />
+        <div *ngIf="name.errors && name.touched" class="invalid-feedback1">Name is required</div>
+      </div>
+    <div class="form-group">
+      <label for="salary">Salary*</label>
+      <input
+        type="number"
+        class="form-control"
+        id="salary"
+        name="salary"
+        placeholder="Enter Salary"
+        required
+        [(ngModel)]="employee.salary"
+        #salary="ngModel"
+      />
+      <div *ngIf="salary.errors && salary.touched" class="invalid-feedback1">Salary is required</div>
+    </div>
+  
+    <div class="form-group">
+      <label for="age">Age*</label>
+      <input
+        type="number"
+        class="form-control"
+        id="age"
+        name="age"
+        placeholder="Enter Age"
+        required
+        [(ngModel)]="employee.age"
+        #age="ngModel"
+      />
+      <div *ngIf="age.errors && age.touched" class="invalid-feedback1">Age is required</div>
+    </div>
+    <div class="form-group">
+      <label for="profile">Profile Image*</label>
+      <input
+        type="file"
+        class="form-control"
+        id="profile"
+        name="profile"
+        placeholder="Enter Profile"
+              [(ngModel)]="employee.profile"
+        accept=".jpg, .gif, .png"
+        #profile="ngModel"
+      />
+      <div *ngIf="profile.errors && profile.touched" class="invalid-feedback1">Profile is required</div>
+    </div>
+  
+    <div class="form-group form-check">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        required
+        id="exampleCheck1"
+      />
+      <label class="form-check-label" for="exampleCheck1">I Agree</label>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="editEmpForm.form.invalid"
+      (click)="editEmployee(editEmpForm)"
+    >
+      Submit
+    </button>
+  </form>

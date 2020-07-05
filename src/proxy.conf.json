@@ -1,0 +1,8 @@
+{
+    "/api/employees": {
+        "target": "http://dummy.restapiexample.com/api/v1/employees",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}

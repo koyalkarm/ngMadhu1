@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
 import { EmpService } from '../emp.service';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 
 @Component({
@@ -9,7 +10,11 @@ import { EmpService } from '../emp.service';
 })
 export class HomeComponent implements OnInit {
   public empData;
-  constructor(private empService: EmpService) { }
+  modalRef: BsModalRef;
+  selectedEmp;
+
+
+  constructor(private empService: EmpService, private modalService: BsModalService) { }
 
   ngOnInit(): void {
     this.empService.getData().subscribe((resp:any) => {
@@ -37,5 +42,21 @@ export class HomeComponent implements OnInit {
     let data={}
     this.empService.addData(data).subscribe((resp) =>{
     })
+  }
+  openModal(template: TemplateRef<any>, emp) {
+    this.modalRef = this.modalService.show(template);
+    console.log(emp);
+    this.selectedEmp=emp;
+  }
+  confirm(id): void {
+    this.empService.deleteData(id).subscribe((resp)=>{
+console.log(resp);
+this.modalRef.hide();
+    })
+    
+  }
+ 
+  decline(): void {
+    this.modalRef.hide();
   }
 }

@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: "about", component: AboutComponent},
   {path: "home", component: HomeComponent},
   {path: "addEmp", component: AddEmpComponent},
-  {path: "editEmp", component: EditEmpComponent},
+  {path: "editEmp/:id", component: EditEmpComponent},
   {path: "**", redirectTo: "/home"}
 ];
 
